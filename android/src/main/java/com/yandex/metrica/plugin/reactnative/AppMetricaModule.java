@@ -71,12 +71,12 @@ public class AppMetricaModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void reportError(String id, String message) {
+    public void reportError(String message) {
         try {
-            Integer.valueOf("00xffWr0ng");
+          Integer.valueOf("00xffWr0ng");
         } catch (Throwable error) {
-            YandexMetrica.reportError(id, message, error);
-        }
+          YandexMetrica.reportError(message, error);
+        }   
     }
 
     @ReactMethod
