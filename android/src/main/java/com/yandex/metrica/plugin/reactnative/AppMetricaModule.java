@@ -18,6 +18,9 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.yandex.metrica.YandexMetrica;
+import com.yandex.metrica.profile.UserProfile;
+
+import com.yandex.metrica.profile.Attribute;
 
 public class AppMetricaModule extends ReactContextBaseJavaModule {
 
@@ -126,5 +129,13 @@ public class AppMetricaModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void setUserProfileID(String userProfileID) {
         YandexMetrica.setUserProfileID(userProfileID);
+    }
+    
+    @ReactMethod
+    public void setUserProfileAttribute(int profileCard) {
+        UserProfile userProfile = UserProfile.newBuilder()
+            .apply(Attribute.customNumber("ProfileCard").withValue(profileCard))
+            .build();
+        YandexMetrica.reportUserProfile(userProfile);
     }
 }

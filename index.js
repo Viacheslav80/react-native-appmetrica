@@ -109,4 +109,8 @@ export default {
   setUserProfileID(userProfileID?: string) {
     AppMetrica.setUserProfileID(userProfileID);
   },
+
+  setUserProfileAttribute(profileCard: number) {
+    AppMetrica.setUserProfileAttribute(profileCard);
+  },
 };
