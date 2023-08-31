@@ -103,12 +103,12 @@ RCT_EXPORT_METHOD(setUserProfileID:(NSString *)userProfileID)
     [YMMYandexMetrica setUserProfileID:userProfileID];
 }
 
-RCT_EXPORT_METHOD(setUserProfileAttribute:(NSNumber *)profileCard)
+RCT_EXPORT_METHOD(setUserProfileAttribute:(double)profileCard)
 {
     YMMMutableUserProfile *profile = [[YMMMutableUserProfile alloc] init];
 // Updating a single user profile attribute.
 
-    [profile apply:[[YMMProfileAttribute customNumber:@"ProfileCard"] withValue:24]];
+    [profile apply:[[YMMProfileAttribute customNumber:@"ProfileCard"] withValue:profileCard]];
 
 // Sending profile attributes.
     [YMMYandexMetrica reportUserProfile:[profile copy] onFailure:^(NSError *error) {
